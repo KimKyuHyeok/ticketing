@@ -111,20 +111,26 @@ public class MemberController {
 
     @GetMapping("/member/join/check-duplicate")
     @ResponseBody
-    public boolean joinCheckDuplicate(
+    public ResponseEntity<Boolean> joinCheckDuplicate(
             @RequestParam(required = false) String loginId,
             @RequestParam(required = false) String email,
             @RequestParam(required = false) String nickname
     ) {
         if (loginId != null) {
-            return memberService.joinCheckLoginId(loginId);
+            boolean result = memberService.joinCheckLoginId(loginId);
+
+            return new ResponseEntity<>(result, HttpStatus.OK);
         } else if (email != null) {
-            return memberService.joinCheckEmail(email);
+            boolean result =  memberService.joinCheckEmail(email);
+
+            return new ResponseEntity<>(result, HttpStatus.OK);
         } else if (nickname != null) {
-            return memberService.joinCheckNickname(nickname);
+            boolean result =  memberService.joinCheckNickname(nickname);
+
+            return new ResponseEntity<>(result, HttpStatus.OK);
         }
 
-        return true;
+        return null;
     }
 
     @GetMapping("/join")

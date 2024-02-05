@@ -36,9 +36,9 @@ public interface MemberMapper {
             @Param("email") String email,
             @Param("nickname") String nickname);
 
-    Optional<Object> joinCheckLoginId(String loginId);
+    Optional<MemberDto> joinCheckLoginId(String loginId);
 
-    Optional<Object> joinCheckEmail(String email);
+    Optional<MemberDto> joinCheckEmail(String email);
 
-    Optional<Object> joinCheckNickname(String nickname);
+    Optional<MemberDto> joinCheckNickname(String nickname);
 }

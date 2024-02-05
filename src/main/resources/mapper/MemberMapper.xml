@@ -37,18 +37,18 @@
         VALUES (#{loginId}, #{password}, #{email}, #{nickname})
     </insert>
 
-    <select id="joinCheckLoginId" resultType="String">
-        SELECT login_id FROM member
+    <select id="joinCheckLoginId">
+        SELECT * FROM member
         WHERE login_id = #{loginId}
     </select>
 
     <select id="joinCheckEmail">
-        SELECT email FROM member
+        SELECT * FROM member
         WHERE email = #{email}
     </select>
 
     <select id="joinCheckNickname">
-        SELECT email FROM member
+        SELECT * FROM member
         WHERE nickname = #{nickname}
     </select>
 </mapper>
