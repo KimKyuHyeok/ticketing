@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel="main" th:object="${boardList}">
+        <attr sel="#search-form" th:action="@{/board}" th:method="get"/>
+        <attr sel="#search-type">
+        </attr>
+        <attr sel="#search-value" th:value="${param.searchValue}"/>
+
+        <attr sel="#board-table">
+            <attr sel="tbody" th:remove="all-but-first">
+                <attr sel="tr[0]" th:each="board : ${boardList}">
+                    <attr sel=".title/a" th:text="${board.title}" th:href="@{'/board/' + ${board.tipId}}" />
+                    <attr sel=".nickname" th:text="${board.nickname}" th:href="@{'/articles/' + ${board.tipId}}" />
+                    <attr sel=".create-date" th:text="${board.createdAt}"/>
+                </attr>
+            </attr>
+        </attr>
+    </attr>
+
+
+</thlogic>

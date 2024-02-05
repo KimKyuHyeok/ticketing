@@ -1,0 +1,190 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.board, #pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.write-btn {
+    margin-top: 30px;
+    float: right;
+}
+
+.wrap, .search form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.write-btn {
+    background-color: #6B95BB;
+    color: white;
+    border-radius: 25px;
+    font-family: 'GmarketSansMedium', sans-serif;
+    width: 100px;
+    height: 30px;
+    margin-right: 20px;
+}
+
+.write-btn:hover {
+    border-color: #6B95BB;
+}
+
+
+.search form {
+    margin-top: 20px;
+}
+
+
+.search {
+    width: 100%;
+    text-align: center;
+}
+
+.search-select > option, .search-value-input {
+    font-family: 'GmarketSansMedium', sans-serif;
+}
+
+.search-btn > img {
+    width: 25px;
+    height: 25px;
+}
+
+.search-value-input {
+    width: 100%;
+    border: 3px solid #6B95BB;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+}
+
+.search-btn {
+    width: 40px;
+    height: 36px;
+    border: 1px solid #6B95BB;
+    background: #6B95BB;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.table > tr > th {
+    font-family: 'GmarketSansMedium', sans-serif;
+    font-size: 16px;
+}
+
+.board-list {
+    border-bottom-color: #6B95BB;
+    font-family: 'GmarketSansMedium', sans-serif;
+    font-size: 13px;
+}
+
+.table {
+    text-align: center;
+}
+
+.board-title {
+    border-top-color: #6B95BB;
+    border-bottom-color: #6B95BB;
+}
+
+#pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+#pagination div {
+    display: flex;
+    flex-direction: row;
+}
+
+#pagination a {
+    background-color: #6B95BB;
+    width: 30px;
+    height: 20px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+#previous, #next {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6B95BB;
+    border-radius: 25px;
+    width: 40px;
+    height: 20px;
+    color: white;
+    text-decoration: none;
+    margin: 0 3px;
+}
+
+.pageNumber {
+    background-color: #6B95BB;
+    border: 1px solid white;
+}
+
+#board-table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-right: 90px;
+}
+
+
+#board-table .title {
+    width: 70%;
+}
+
+#board-table .nickname {
+    width: 15%;
+}
+
+#board-table .created-at {
+    width: 15%;
+}
+
+#board-table .created-at span,
+#board-table .title a,
+#board-table .nickname {
+    display: inline-block;
+    width: 100%; /* span의 가로 길이 설정 */
+}
+
+#board-table th {
+    background-color: #6B95BB;
+}
+
+.board-list > .title,
+.board-list > td,
+.board-list > .created-at {
+    border: 1px solid #6B95BB;
+}
+
+.board-list > .title > a {
+    color: black;
+    text-decoration: none;
+}
+
+
+
+
+

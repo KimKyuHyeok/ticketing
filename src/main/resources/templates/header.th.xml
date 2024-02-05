@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<thlogic>
+    <!--    <attr sel="#home" th:href="@{/home}"/>-->
+    <attr sel="#tip-board" th:href="@{/board}"/>
+    <attr sel="#free-board" th:href="@{/free-board}"/>
+    <attr sel="#notice" th:href="@{/notice}"/>
+    <attr sel="#login" th:if="${session['id'] == null}" th:href="@{/login}"/>
+    <attr sel="#join" th:if="${session['id'] == null}" th:href="@{/join}"/>
+    <attr sel="#myPage" th:if="${session['id'] != null}" th:href="@{/myPage}"/>
+    <attr sel="#logout" th:if="${session['id'] != null}" th:href="@{/logout}"/>
+
+
+</thlogic>

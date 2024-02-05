@@ -1,0 +1,97 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.form-header {
+    text-align: center;
+}
+
+.form-header > h1 {
+    font-family: 'GmarketSansMedium', sans-serif;
+    color: #6B95BB;
+    margin-right: 130px;
+}
+
+
+.title-row {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.title-label {
+    font-family: 'GmarketSansMedium', sans-serif;
+    font-size: 20px;
+    background-color: #6B95BB;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    display: inline-block;
+    margin-bottom: 20px;
+    width: 100px;
+    line-height: 0.3;
+}
+
+.title-input {
+    display: inline-block;
+    margin-bottom: 20px;
+
+}
+
+.title-input > input {
+    border-radius: 15px;
+    background-color: rgb(233, 233, 233);
+    outline: none;
+    font-size: 15px;
+    width: 400px;
+}
+
+.content-row {
+    text-align: center;
+    align-items: center;
+}
+
+.content-label {
+    font-family: 'GmarketSansMedium', sans-serif;
+    font-size: 20px;
+    background-color: #6B95BB;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    display: inline-block;
+    margin-bottom: 20px;
+    width: 200px;
+    line-height: 0.3;
+}
+
+.col-sm-8 {
+    width: 700px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.ck-content {
+    height: 400px;
+}
+
+.btn-row {
+    display: flex;
+    justify-content: center; /* 가로 정렬 중앙 정렬 */
+    margin-top: 50px; /* 원하는 만큼의 여백을 추가하세요 */
+}
+
+.save-btn, .cancel-btn {
+    background-color: #6B95BB;
+    color: white;
+    border-radius: 25px;
+    font-family: 'GmarketSansMedium', sans-serif;
+    width: 100px;
+    height: 30px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}

@@ -1,0 +1,51 @@
+body {
+    margin-top: 40px;
+    font-size: 14px;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+
+#external-events-container {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    width: 100px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    background: #eee;
+    text-align: left;
+}
+
+#external-events h4 {
+    font-size: 16px;
+    margin-top: 0;
+    padding-top: 1em;
+}
+
+#external-events .fc-event {
+    margin: 3px 0;
+    cursor: move;
+}
+
+#external-events p {
+    margin: 1.5em 0;
+    font-size: 11px;
+    color: #666;
+}
+
+#external-events p input {
+    margin: 0;
+    vertical-align: middle;
+}
+
+#calendar-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* 조절한 높이 값 */
+    margin-top: 180px; /* 헤더의 높이만큼 여백을 주어 겹침을 방지합니다. */
+    margin-bottom: 180px; /* 푸터의 높이만큼 여백을 주어 겹침을 방지합니다. */
+}
+
+#calendar1 {
+    width: 80%; /* 적절한 너비 값 */
+}

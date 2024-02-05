@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Kim">
+    <title>게시판 페이지</title>
+
+    <link href="/css/search-bar.css" rel="stylesheet">
+    <link href="/css/table-header.css" rel="stylesheet">
+    <link href="/css/board.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/tip.css" rel="stylesheet">
+    <script src='/script/board.js'></script>
+    <script src='/script/time.js'></script>
+
+</head>
+<body>
+<header id="header" th:replace="header :: header">
+    헤더 삽입부
+    <hr>
+</header>
+
+<main class="container">
+    <div class="board">
+        <table class="table" id="board-table">
+            <thead>
+            <tr class="board-title">
+                <th class="title">제목</th>
+                <th class="nickname">작성자</th>
+                <th class="created-at">작성일</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="board-list">
+                <td class="title"><a>제목</a></td>
+                <td><span class="nickname"></span></td>
+                <span class="user-data" hidden>작성글 검색</span>
+                <td class="created-at">
+                    <label class="create-date" hidden></label>
+                    <span class="time"></span>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="write">
+        <button class="write-btn" th:onclick="window.location='/board/form'">글쓰기</button>
+    </div>
+
+    <div id="pagination">
+        <!-- 이전 버튼 -->
+        <div id="previous" th:if="${page > 1}">
+            <a id="previousBtn" th:href="@{/board(page=${page - 1}, searchType=${searchType}, searchValue=${searchValue})}" th:class="${page <= 1} ? 'disabled' : ''">이전</a>
+        </div>
+
+        <!-- 페이지 번호를 현재 페이지를 중심으로 5개씩 보여주는 로직 -->
+        <div th:with="startPage=${(page - 1) / 5 * 5 + 1}">
+            <div th:with="endPage=${(startPage + 4 > totalPages) ? totalPages : (startPage + 4)}">
+                <div th:each="pageNumber : ${#numbers.sequence(startPage, endPage)}" class="pageNumber">
+                    <a id="nowBtn" th:href="@{/board(page=${pageNumber}, searchType=${searchType}, searchValue=${searchValue})}" th:text="${pageNumber}"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 다음 버튼 -->
+        <div id="next" th:if="${page < totalPages}">
+            <a id="nextBtn" th:href="@{/board(page=${page + 1}, searchType=${searchType}, searchValue=${searchValue})}">다음</a>
+        </div>
+    </div>
+
+    <div class="wrap">
+        <div class="search">
+            <form action="/board" method="get" id="search-form">
+                <label for="search-type" hidden>검색 유형</label>
+                <select class="search-select" id="search-type" name="searchType">
+                    <option>제목</option>
+                    <option>닉네임</option>
+                </select>
+                    <label for="search-value" hidden>검색어</label>
+                    <input class="search-value-input" type="text" placeholder="검색어를 입력하세요." id="search-value" name="searchValue">
+                    <button type="submit" class="search-btn"><img src="/image/search.png"></button>
+            </form>
+        </div>
+    </div>
+
+
+</main>
+
+<footer id="footer">
+    <hr>
+    푸터 삽입부
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script></body>
+</html>

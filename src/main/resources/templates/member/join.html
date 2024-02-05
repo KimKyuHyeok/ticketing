@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Kim">
+    <title>로그인페이지</title>
+
+    <link href="/css/header.css" rel="stylesheet">
+    <script src="/script/join.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+</head>
+
+<body>
+<header id="header" th:replace="header :: header">
+    헤더 삽입부
+    <hr>
+</header>
+<main>
+    <h1 class="title">회원가입</h1>
+    <div class="signup">
+        <form id="joinForm">
+            <div class="user-loginId">
+                <span class="input">아이디</span>
+                <input type="text" name="id" onclick="inputIdCheck()" id="loginId">
+                <button class="check-btn" type="button" onclick="idDuplicateCheck()" name="IdCheck" id="IdCheck">중복확인</button>
+                <input type="hidden" name="idDuplication" value="idUncheck">
+            </div>
+            <div class="user-password">
+                <span class="input">비밀번호</span>
+                <input type="password" name="password">
+                <span class="input">비밀번호 확인</span>
+                <input type="password" name="rePw">
+            </div>
+            <div class="user-nickname">
+                <span class="input">닉네임</span>
+                <input type="text" name="nickname" onclick="inputNicknameCheck()" id="nickname">
+                <button class="check-btn" type="button" onclick="nicknameDuplicateCheck()" name="nicknameCheck" id="nicknameCheck">중복확인</button>
+                <input type="hidden" name="nicknameDuplication" value="nicknameUncheck">
+            </div>
+            <div class="user-email">
+                <span class="input">이메일</span>
+                <input type="text" name="email" onclick="inputEmailCheck()" id="email">
+                <button class="check-btn" type="button" onclick="emailDuplicateCheck()" name="emailCheck" id="emailCheck">중복확인</button>
+                <input type="hidden" name="emailDuplication" value="emailUncheck">
+            </div>
+
+            <button class="join-btn" type="button" onclick="joinUser()" id="join-button">가입하기</button>
+        </form>
+    </div>
+
+</main>
+
+
+</body>
+</html>

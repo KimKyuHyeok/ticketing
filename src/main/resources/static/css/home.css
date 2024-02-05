@@ -1,0 +1,90 @@
+.reservationDay {
+    background-color: red;
+    color: white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.top-menu {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    width: 900px;
+    height: 300px;
+}
+
+.table {
+    display: flex;
+    padding: 20px;
+}
+
+.concert-image {
+    width: 150px;
+    height: auto;
+}
+
+.recent-concert {
+    display: grid;
+    transform: translateX(-100px);
+}
+
+
+.recent-concert-images li {
+    margin-right: 10px;
+}
+
+.concert-title-table {
+    display: flex;
+}
+
+
+.top-menu-background {
+    object-fit: cover;
+}
+
+.recent-concert-images {
+    display: flex;
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.recent-title {
+    font-family: 'GmarketSansMedium', sans-serif;
+    font-size: 25px;
+}
+
+.recent-icon {
+    width: 25px;
+    height: 25px;
+    transform: translateY(5px);
+    margin-right: 7px;
+}
+
+.concert-name {
+    display: block;
+}
+
+
+.recent-concert-info {
+    display: flex;
+    flex-direction: column; /* 요소들을 세로로 배치 */
+    justify-content: center;
+    position: relative;
+}
+
+.concert-name, .concert-time {
+    margin-top: 5px;
+    text-align: center;
+    font-family: 'GmarketSansMedium';
+    background-color: #6B95BB;
+    border-bottom-color: white;
+}

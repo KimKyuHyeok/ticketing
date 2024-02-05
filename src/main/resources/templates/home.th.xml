@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel="#header" th:replace="header :: header" />
+    <attr sel="#footer" th:replace="footer :: footer" />
+
+    <attr sel="#tip-board-table">
+        <attr sel="tbody" th:remove="all-but-first">
+            <attr sel="tr[0]" th:each="board : ${boardList}">
+                <attr sel="td.title/a" th:text="${board.title}" th:href="@{'/articles/' + ${board.postId}}" />
+                <attr sel="td.created-at" th:text="${board.userInfoDto.nickname}" />
+                <attr sel="td.created-by/time" th:datetime="${board.createdAt}" th:text="${#temporals.format(board.createdAt, 'MM월 dd일 hh시 mm분')}"/>
+            </attr>
+        </attr>
+    </attr>
+    <attr sel="#talking-board-table">
+        <attr sel="tbody" th:remove="all-but-first">
+            <attr sel="tr[0]" th:each="board : ${boardList}">
+                <attr sel="td.title/a" th:text="${board.title}" th:href="@{'/articles/' + ${board.postId}}" />
+                <attr sel="td.created-at" th:text="${board.userInfoDto.nickname}" />
+                <attr sel="td.created-by/time" th:datetime="${board.createdAt}" th:text="${#temporals.format(board.createdAt, 'MM월 dd일 hh시 mm분')}"/>
+            </attr>
+        </attr>
+    </attr>
+</thlogic>

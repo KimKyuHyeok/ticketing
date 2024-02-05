@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Kim">
+    <title>마이페이지</title>
+
+    <link href="/css/header.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="/script/myPage.js"></script>
+</head>
+
+<body>
+<header id="header" th:replace="header :: header">
+    헤더 삽입부
+    <hr>
+</header>
+<main>
+    <h1>회원 정보</h1>
+    <div class="user-info">
+        <form th:object="${userInfo}" id="updateForm">
+            <div class="login">
+                <span>아이디 :</span>
+                <span class="login-id" th:text="${userInfo.loginId}"></span>
+            </div>
+
+            <div class="password-name">
+                <span>패스워드 :</span>
+                <input type="text" class="password" name="password" id="password">
+                <span>패스워드확인 :</span>
+                <input type="text" class="password-confirm" name="password-confirm" id="passwordConfirm">
+            </div>
+
+            <div class="email-name">
+                <span>이메일 :</span>
+                <input type="text" class="email" th:value="${userInfo.email}" name="email" id="email">
+                <input type="button" value="중복확인" onclick="emailDuplicateCheck()">
+                <input type="hidden" name="emailDuplication" value="emailUncheck">
+            </div>
+
+            <div class="nickname-name">
+                <span>닉네임 :</span>
+                <input type="text" class="nickname" th:value="${userInfo.nickname}" name="nickname" id="nickname">
+                <input type="button" value="중복확인" onclick="nicknameDuplicateCheck()">
+                <input type="hidden" name="nicknameDuplication" value="nicknameUncheck">
+            </div>
+
+            <button type="button" onclick="myPageUpdate()">수정</button>
+        </form>
+    </div>
+</main>
+
+
+</body>
+</html>

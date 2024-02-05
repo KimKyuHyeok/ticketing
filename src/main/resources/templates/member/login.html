@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Kim">
+    <title>로그인페이지</title>
+
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/login.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="/script/login.js"></script>
+    <script th:inline="javascript">
+        var loginFailed = /*[[${loginFailed}]]*/ false;
+    </script>
+</head>
+
+<body>
+<header id="header" th:replace="header :: header">
+    헤더 삽입부
+    <hr>
+</header>
+<main>
+
+    <div class="login-page">
+        <h2>로그인</h2>
+        <span style="display: none;" class="login-failed" id="login-failed">아이디 혹은 비밀번호가 일치하지 않습니다.</span>
+        <form class="login" action="/login" method="post">
+            <div class="input" id="id_line">
+                <input type="text" id="loginId" name="loginId" placeholder="아이디">
+            </div>
+            <div class="input" id="pw_line">
+                <input type="password" id="loginPw" name="password" placeholder="비밀번호">
+            </div>
+            <div class="">
+                <button type="submit" class="btn-login" id="btn-login">로그인</button>
+            </div>
+        </form>
+        <div class="user_info_page">
+            <a href="#" class="find_id">아이디 찾기</a>
+            <a href="#" class="find_pw">비밀번호 찾기</a>
+            <a href="/user/join" class="join">회원가입</a>
+        </div>
+    </div>
+</main>
+
+<!--<footer id="footer" th:replace="footer :: footer">-->
+<!--    <hr>-->
+<!--    푸터 삽입부-->
+<!--</footer>-->
+
+</body>
+</html>
