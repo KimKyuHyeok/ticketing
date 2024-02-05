@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <typeAliases>
+                <package name="com.ticket.ticketing.dto.MemberDto"/>
+                <package name="com.ticket.ticketing.dto.ConcertDto"/>
+                <package name="com.ticket.ticketing.dto.TipDto"/>
+                <package name="com.ticket.ticketing.dto.FreeBoardDto"/>
+                <package name="com.ticket.ticketing.dto.request.LoginRequest"/>
+    </typeAliases>
+    <mappers>
+                <mapper resource="mapper/MemberMapper.xml"/>
+                <mapper resource="mapper/ConcertMapper.xml"/>
+                <mapper resource="mapper/TipMapper.xml"/>
+                <mapper resource="mapper/FreeBoardMapper.xml"/>
+    </mappers>
+</configuration>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ticket.ticketing.mapper.MemberMapper">
+    <select id="login" resultType="com.ticket.ticketing.dto.MemberDto">
+        SELECT
+            *
+        FROM member
+        WHERE login_id = #{loginId}
+    </select>
+
+    <select id="findByMemberId">
+        SELECT * FROM member WHERE user_id = #{userId}
+    </select>
+
+    <update id="memberInfoUpdate">
+        UPDATE member
+        SET password = #{password},
+            email = #{email},
+            nickname = #{nickname}
+        WHERE user_id = #{userId}
+    </update>
+
+    <select id="checkNickname">
+        SELECT * FROM member
+        WHERE nickname = #{nickname} AND user_id NOT IN (#{userId})
+    </select>
+
+    <select id="checkEmail">
+        SELECT * FROM member
+        WHERE email = #{email} AND user_id NOT IN (#{userId})
+    </select>
+
+    <insert id="join">
+        INSERT INTO member(login_id, password, email, nickname)
+        VALUES (#{loginId}, #{password}, #{email}, #{nickname})
+    </insert>
+
+    <select id="joinCheckLoginId" resultType="String">
+        SELECT login_id FROM member
+        WHERE login_id = #{loginId}
+    </select>
+
+    <select id="joinCheckEmail">
+        SELECT email FROM member
+        WHERE email = #{email}
+    </select>
+
+    <select id="joinCheckNickname">
+        SELECT email FROM member
+        WHERE nickname = #{nickname}
+    </select>
+</mapper>
