@@ -8,6 +8,7 @@
     <title>마이페이지</title>
 
     <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/myPage.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="/script/myPage.js"></script>
 </head>
@@ -36,18 +37,18 @@
             <div class="email-name">
                 <span>이메일 :</span>
                 <input type="text" class="email" th:value="${userInfo.email}" name="email" id="email">
-                <input type="button" value="중복확인" onclick="emailDuplicateCheck()">
+                <input class="check-btn" type="button" value="중복확인" onclick="emailDuplicateCheck()">
                 <input type="hidden" name="emailDuplication" value="emailUncheck">
             </div>
 
             <div class="nickname-name">
                 <span>닉네임 :</span>
                 <input type="text" class="nickname" th:value="${userInfo.nickname}" name="nickname" id="nickname">
-                <input type="button" value="중복확인" onclick="nicknameDuplicateCheck()">
+                <input class="check-btn"type="button" value="중복확인" onclick="nicknameDuplicateCheck()">
                 <input type="hidden" name="nicknameDuplication" value="nicknameUncheck">
             </div>
 
-            <button type="button" onclick="myPageUpdate()">수정</button>
+            <button class="update-btn" type="button" onclick="myPageUpdate()">수정</button>
         </form>
     </div>
 </main>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>콘서트 상세보기</title>
+    <script src='/script/calendar-script.js'></script>
+    <link href="/css/popup.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="content">
+    <img th:src="'/image/' + ${concert.image}" class="concert-image" alt="Concert Image"></img>
+    <table class="concert-table" id="concert-table">
+        <tr>
+            <th class="concert-name">콘서트 명</th>
+            <td class="concert-name" th:text="${concert.name}"></td>
+        </tr>
+        <tr>
+            <th class="concert-artist">출연진</th>
+            <td class="concert-artist" th:text="${concert.artist}"></td>
+        </tr>
+        <tr>
+            <th class="concert-location">장소</th>
+            <td class="concert-location" th:text="${concert.location}"></td>
+        </tr>
+        <tr>
+            <th class="concert-reservation">예매일</th>
+            <td class="concert-reservation" th:datetime="${reservationDay}" th:text="${#temporals.format(concert.reservationDay, 'yyyy년 MM월 dd일 hh시 mm분')}"></td>
+        </tr>
+        <tr>
+            <th class="concert-dDay">공연일</th>
+            <td class="concert-dDay" th:with="formattedStartDay=${#temporals.format(concert.startDay, 'yyyy년 MM월 dd일')}, formattedEndDay=${#temporals.format(concert.endDay, 'yyyy년 MM월 dd일')}" th:text="${formattedStartDay + ' ~ ' + formattedEndDay}"></td>
+        </tr>
+        <tr>
+            <th class="concert-link">예매처</th>
+            <td class="concert-link" th:text="${concert.link}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

@@ -8,6 +8,7 @@
     <title>로그인페이지</title>
 
     <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/join.css" rel="stylesheet">
     <script src="/script/join.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
@@ -19,8 +20,8 @@
     <hr>
 </header>
 <main>
-    <h1 class="title">회원가입</h1>
-    <div class="signup">
+    <div class="join-page">
+        <h1 class="title">회원가입</h1>
         <form id="joinForm">
             <div class="user-loginId">
                 <span class="input">아이디</span>
@@ -30,9 +31,11 @@
             </div>
             <div class="user-password">
                 <span class="input">비밀번호</span>
-                <input type="password" name="password">
+                <input type="password" name="password" id="password">
+            </div>
+            <div class="user-password-confirm">
                 <span class="input">비밀번호 확인</span>
-                <input type="password" name="rePw">
+                <input type="password" name="rePw" id="password-confirm">
             </div>
             <div class="user-nickname">
                 <span class="input">닉네임</span>

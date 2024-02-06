@@ -1,0 +1,27 @@
+/* 전체 테이블 스타일링 */
+.concert-table {
+    width: 100%;
+    border-collapse: collapse;
+    boarder: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+.concert-table th, .concert-table td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+
+.concert-image {
+    max-width: 100%;
+    height: auto;
+    margin-right: 20px; /* 우측 간격 조절 */
+}
+
+.content {
+    display: flex;
+    align-items: center;
+}
+
+
