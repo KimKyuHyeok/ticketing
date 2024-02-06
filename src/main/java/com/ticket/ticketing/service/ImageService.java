@@ -14,7 +14,6 @@ import java.util.UUID;
 @Service
 public class ImageService {
 
-    @Value("/")
     private String uploadPath;
 
     public String imageUpload(MultipartRequest request) throws IOException {
