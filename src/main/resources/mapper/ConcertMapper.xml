@@ -8,4 +8,8 @@
             *
         FROM concert
     </select>
+
+    <select id="getConcertDto">
+        SELECT * FROM concert WHERE concert_id = #{concertId}
+    </select>
 </mapper>

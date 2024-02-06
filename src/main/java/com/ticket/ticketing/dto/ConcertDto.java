@@ -16,4 +16,5 @@ public class ConcertDto {
     private LocalDateTime startDay;
     private LocalDateTime endDay;
     private LocalDateTime reservationDay;
+    private String image;
 }

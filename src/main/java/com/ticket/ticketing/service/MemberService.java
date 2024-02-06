@@ -18,19 +18,31 @@ public class MemberService {
     private final MemberMapper memberMapper;
 
     public MemberDto login(String loginId, String password) {
-
         MemberDto memberInfo = memberMapper.login(loginId);
+
+        if (memberInfo == null) {
+            return null;
+        }
 
         String hashPassword = memberInfo.getPassword();
 
+        if (hashPassword == null || hashPassword.isEmpty()) {
+            return null;
+        }
+
+        if (!hashPassword.startsWith("$2a$")) {
+            return null;
+        }
+
         boolean isMatch = BCrypt.checkpw(password, hashPassword);
 
-        if (isMatch == true) {
+        if (isMatch) {
             return memberInfo;
         } else {
             return null;
         }
     }
+
 
     public MemberDto findByMemberId(Long userId) {
         return memberMapper.findByMemberId(userId);
