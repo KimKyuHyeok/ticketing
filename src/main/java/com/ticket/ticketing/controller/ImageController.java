@@ -23,7 +23,7 @@ import java.util.Map;
 @RequestMapping("/image")
 @Controller
 public class ImageController {
-    @Value("${upload.path}")
+    @Value("/")
     private String uploadPath;
     private final ImageService imageService;
 
