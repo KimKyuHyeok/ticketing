@@ -1,0 +1,30 @@
+.tip-detail {
+    margin-right: 15%;
+    margin-left: 15%;
+}
+
+.tip-top-info {
+    display: flex;
+    font-family: 'GmarketSansMedium', sans-serif;
+    font-size: 13px;
+}
+
+.nickname {
+    margin-top: 50px;
+    margin-right: 40px;
+}
+
+.title {
+    font-family: 'GmarketSansMedium', sans-serif;
+    margin-top: 50px;
+    font-size: 30px;
+    display: flex;
+}
+
+.content {
+    border-top: #6B95BB solid 2px;
+    border-bottom: #6B95BB solid 2px;
+    font-family: 'GmarketSansMedium', sans-serif;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

@@ -26,4 +26,6 @@ public interface TipMapper {
     int findCnt();
 
     void upload(@Param("tipDto") TipDto tipDto);
+
+    ResponseTipDto findSelectOne(@Param("tipId") Long tipId);
 }

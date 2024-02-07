@@ -54,4 +54,8 @@ public class TipService {
         }
 
     }
+
+    public ResponseTipDto findSelectOne(Long tipId) {
+        return tipMapper.findSelectOne(tipId);
+    }
 }

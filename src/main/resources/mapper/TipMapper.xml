@@ -9,41 +9,46 @@
 
     <select id="findAll">
         SELECT
-            tip_id,
-            title,
-            content,
-            created_at,
-            deleted,
-            ( SELECT nickname FROM `member` ) as nickname FROM tip_board
-            ORDER BY created_at DESC
-        LIMIT #{pageNumber}, 20
+            tb.tip_id,
+            m.nickname,
+            tb.title,
+            tb.content,
+            tb.created_at,
+            tb.deleted FROM tip_board tb
+                                LEFT JOIN `member` m
+                                          ON tb .user_id  = m.user_id
+        ORDER BY created_at DESC
+            LIMIT #{pageNumber}, 20
     </select>
 
     <select id="findAllByTitle">
         SELECT
-            tip_id,
-            title,
-            content,
-            created_at,
-            deleted,
-            ( SELECT nickname FROM `member` ) as nickname FROM tip_board
-                WHERE title LIKE CONCAT('%', #{searchValue}, '%')
-                ORDER BY created_at DESC
-                LIMIT #{pageNumber}, 20
+            tb.tip_id,
+            m.nickname,
+            tb.title,
+            tb.content,
+            tb.created_at,
+            tb.deleted FROM tip_board tb
+                                LEFT JOIN `member` m
+                                          ON tb .user_id  = m.user_id
+        WHERE tb.title LIKE CONCAT('%', #{searchValue}, '%')
+        ORDER BY created_at DESC
+            LIMIT #{pageNumber}, 20
     </select>
 
     <select id="findAllByNickname">
         SELECT
-            tip_id,
-            title,
-            content,
-            created_at,
-            deleted,
-            ( SELECT nickname FROM `member` ) as nickname
-        FROM tip_board
-                WHERE ( SELECT nickname FROM `member` ) LIKE #{searchValue}
-                ORDER BY created_at DESC
-                LIMIT #{pageNumber}, 20
+            tb.tip_id,
+            m.nickname,
+            tb.title,
+            tb.content,
+            tb.created_at,
+            tb.deleted FROM tip_board tb
+                                LEFT JOIN `member` m
+                                          ON tb .user_id  = m.user_id
+        WHERE m.nickname LIKE CONCAT('%', #{searchValue}, '%')
+        ORDER BY created_at DESC
+            LIMIT #{pageNumber}, 20
     </select>
 
     <insert id="upload">
@@ -58,5 +63,19 @@
              0
              )
     </insert>
+
+    <select id="findSelectOne">
+        SELECT
+            tb.tip_id,
+            m.nickname,
+            tb.title,
+            tb.content,
+            tb.created_at,
+            tb.deleted,
+            tb.image_url
+        FROM tip_board tb
+            LEFT JOIN `member` m ON tb.user_id = m.user_id
+        WHERE tb.tip_id = #{tipId}
+    </select>
 
 </mapper>

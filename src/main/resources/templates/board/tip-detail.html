@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Kim">
+    <title>게시판 페이지</title>
+
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/tip-detail.css" rel="stylesheet">
+
+</head>
+<body>
+<header id="header" th:replace="header :: header">
+    헤더 삽입부
+    <hr>
+</header>
+
+<main class="container">
+    <div class="tip-detail" th:object="${tip}">
+        <div class="nickname" th:if="${tip.deleted}">
+            <span>이미 삭제된 게시글</span>
+        </div>
+
+        <div class="title" th:unless="${tip.deleted}">
+            <span th:text="${tip.title}"></span>
+        </div>
+
+        <div class="tip-top-info">
+            <div class="nickname" th:unless="${tip.deleted}">
+                <span>작성자 : </span>
+                <span th:text="${tip.nickname}"></span>
+            </div>
+            <div class="nickname" th:unless="${tip.deleted}">
+                <span>작성일 : </span>
+                <span th:text="${#temporals.format(tip.createdAt, 'yyyy년 MM월 dd일 HH시 mm분')}"></span>
+            </div>
+        </div>
+
+
+        <div class="content" th:unless="${tip.deleted}">
+            <span th:utext="${tip.content}"></span>
+        </div>
+    </div>
+
+
+</main>
+
+<footer id="footer">
+    <hr>
+    푸터 삽입부
+</footer>
+
+</body>
+</html>

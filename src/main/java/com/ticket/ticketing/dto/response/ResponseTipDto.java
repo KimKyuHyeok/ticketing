@@ -14,5 +14,4 @@ public class ResponseTipDto {
     private String content;
     private LocalDateTime createdAt;
     private boolean deleted;
-
 }
