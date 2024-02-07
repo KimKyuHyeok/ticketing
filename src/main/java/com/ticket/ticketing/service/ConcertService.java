@@ -21,4 +21,8 @@ public class ConcertService {
     public List<ConcertDto> getConcertList() {
         return concertMapper.findAllConcertList();
     }
+
+    public List<ConcertDto> getNewConcertList() {
+        return concertMapper.getNewConcertList();
+    }
 }

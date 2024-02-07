@@ -11,4 +11,6 @@ public interface ConcertMapper {
     List<ConcertDto> findAllConcertList();
 
     ConcertDto getConcertDto(@Param("concertId") Long concertId);
+
+    List<ConcertDto> getNewConcertList();
 }
