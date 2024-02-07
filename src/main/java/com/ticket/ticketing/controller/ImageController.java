@@ -2,6 +2,7 @@ package com.ticket.ticketing.controller;
 
 import com.ticket.ticketing.service.ImageService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
@@ -19,13 +20,18 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
-@RequiredArgsConstructor
+
 @RequestMapping("/image")
 @Controller
 public class ImageController {
 
     private String uploadPath;
-    private final ImageService imageService;
+    private ImageService imageService;
+
+    @Autowired
+    public ImageController(ImageService imageService) {
+        this.imageService = imageService;
+    }
 
     @ResponseBody
     @GetMapping("/{imageName}")
@@ -52,16 +58,16 @@ public class ImageController {
 
     @ResponseBody
     @PostMapping("/upload")
-    public Map<String, Object> uploadImages(MultipartRequest request) {
+    public Map<String, Object> uploadImages(MultipartRequest request) throws Exception {
 
         Map<String, Object> responseData = new HashMap<>();
 
         try {
 
-            String imageUrl = imageService.imageUpload(request);
+            String s3Url = imageService.imageUpload(request);
 
             responseData.put("uploaded", true);
-            responseData.put("url", imageUrl);
+            responseData.put("url", s3Url);
 
             return responseData;
 

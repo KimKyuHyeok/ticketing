@@ -23,53 +23,19 @@
     <div class="top-menu">
         <div class="recent-concert">
             <div class="concert-title-table">
-                <img class="recent-icon" src="/image/concert-icon.png">
+                <img class="recent-icon" src="https://hk-ticketing-s3-1.s3.ap-northeast-2.amazonaws.com/concert-icon.png">
                 <span class="recent-title">신규 콘서트</span>
             </div>
             <div class="concert-list">
                 <ul class="recent-concert-images">
-                    <li>
-                        <img class="concert-image" src="/image/imhero.gif">
+                    <li th:each="concert : ${concertList}">
+                        <img class="concert-image" th:src="${concert.image}">
                         <div class="recent-concert-info">
-                            <a class="concert-name">임영웅 콘서트</a>
-                            <time class="concert-time">2022-12-12</time>
+                            <a class="concert-name" th:text="${concert.name}"></a>
+                            <time class="concert-time" th:text="${#temporals.format(concert.startDay, 'yyyy-MM-dd')}"></time>
                         </div>
                     </li>
-                    <li>
-                        <img class="concert-image" src="/image/imhero.gif">
-                        <div class="recent-concert-info">
-                            <a class="concert-name">임영웅 콘서트</a>
-                            <time class="concert-time">2022-12-12</time>
-                        </div>
-                    </li>
-                    <li>
-                        <img class="concert-image" src="/image/imhero.gif">
-                        <div class="recent-concert-info">
-                            <a class="concert-name">임영웅 콘서트</a>
-                            <time class="concert-time">2022-12-12</time>
-                        </div>
-                    </li>
-                    <li>
-                        <img class="concert-image" src="/image/imhero.gif">
-                        <div class="recent-concert-info">
-                            <a class="concert-name">임영웅 콘서트</a>
-                            <time class="concert-time">2022-12-12</time>
-                        </div>
-                    </li>
-                    <li>
-                        <img class="concert-image" src="/image/imhero.gif">
-                        <div class="recent-concert-info">
-                            <a class="concert-name">임영웅 콘서트</a>
-                            <time class="concert-time">2022-12-12</time>
-                        </div>
-                    </li>
-                    <li>
-                        <img class="concert-image" src="/image/imhero.gif">
-                        <div class="recent-concert-info">
-                            <a class="concert-name">임영웅 콘서트</a>
-                            <time class="concert-time">2022-12-12</time>
-                        </div>
-                    </li>
+
                 </ul>
             </div>
         </div>
