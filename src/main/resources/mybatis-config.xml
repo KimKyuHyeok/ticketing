@@ -19,5 +19,6 @@
                 <mapper resource="mapper/ConcertMapper.xml"/>
                 <mapper resource="mapper/TipMapper.xml"/>
                 <mapper resource="mapper/FreeBoardMapper.xml"/>
+                <mapper resource="mapper/AdminMapper.xml"/>
     </mappers>
 </configuration>

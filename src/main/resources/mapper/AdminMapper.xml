@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ticket.ticketing.mapper.AdminMapper">
+    <insert id="concertUpload">
+        INSERT INTO concert(artist, name, location, link, start_day, end_day, reservation_day, image)
+        VALUES (#{concert.artist},
+                #{concert.name},
+                #{concert.location},
+                #{concert.link},
+                #{concert.startDay},
+                #{concert.endDay},
+                #{concert.reservationDay},
+                #{image})
+    </insert>
+</mapper>
