@@ -9,7 +9,7 @@
 
 <body>
 <div class="content">
-    <img th:src="'/image/' + ${concert.image}" class="concert-image" alt="Concert Image"></img>
+    <img th:src="${concert.image}" class="concert-image" alt="Concert Image">
     <table class="concert-table" id="concert-table">
         <tr>
             <th class="concert-name">콘서트 명</th>

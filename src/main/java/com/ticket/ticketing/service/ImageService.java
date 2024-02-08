@@ -54,11 +54,9 @@ public class ImageService {
         s3Config.amazonS3Client().putObject(new PutObjectRequest(bucket, fileName, localFile).withCannedAcl(CannedAccessControlList.PublicRead));
         String s3Url = s3Config.amazonS3Client().getUrl(bucket, fileName).toString();
 
-        System.out.println("URL >>>>>>" + s3Url);
-
         //서버에 저장한 이미지 삭제
         localFile.delete();
 
-        return s3Url;
+        return fileName;
     }
 }
