@@ -48,7 +48,7 @@
 
     </div>
     <div class="write">
-        <button class="write-btn" th:onclick="window.location='/board/form'">글쓰기</button>
+        <button class="write-btn" th:attr="onclick=${#request.getCookies() != null} ? 'window.location=\'/board/form\'' : 'window.location=\'/login\''">글쓰기</button>
     </div>
 
     <div id="pagination">

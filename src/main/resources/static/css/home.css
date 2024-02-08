@@ -12,9 +12,13 @@
 .top-menu {
     display: flex;
     align-items: center;
-    margin: 0 auto;
+    margin: 10px auto 0;
     width: 900px;
     height: 300px;
+}
+
+.image-box {
+    margin-left: 8px;
 }
 
 .table {

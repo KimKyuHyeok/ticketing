@@ -28,13 +28,13 @@
             </div>
             <div class="concert-list">
                 <ul class="recent-concert-images">
-                    <li th:each="concert : ${concertList}">
+                    <span th:each="concert : ${concertList}" class="image-box">
                         <img class="concert-image" th:src="${concert.image}">
                         <div class="recent-concert-info">
                             <a class="concert-name" th:text="${concert.name}"></a>
                             <time class="concert-time" th:text="${#temporals.format(concert.startDay, 'yyyy-MM-dd')}"></time>
                         </div>
-                    </li>
+                    </span>
 
                 </ul>
             </div>

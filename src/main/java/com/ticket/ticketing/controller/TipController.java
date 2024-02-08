@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartRequest;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -70,20 +72,24 @@ public class TipController {
     public String formWrite(
             @RequestParam("title") String title,
             @RequestParam("content") String content,
-            HttpSession session,
+            HttpServletRequest request,
             Model model
     ) {
-        String userIdStr = session.getAttribute("num").toString();
-        Long userId = Long.parseLong(userIdStr);
+        Cookie[] cookies = request.getCookies();
 
-        try {
-            tipService.upload(title, content, userId);
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("num")) {
+                    String idValue = cookie.getValue();
+                    Long userId = Long.parseLong(idValue);
 
-            return "redirect:/board";
+                    tipService.upload(title, content, userId);
 
-        } catch (Exception e) {
-            return "false";
+                    return "redirect:/board";
+                }
+            }
         }
+        return null;
     }
 
 
