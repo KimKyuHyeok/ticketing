@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ticket.ticketing.mapper.TipCommentMapper">
+    <insert id="createComment">
+        INSERT INTO tip_comment(tip_id, user_id, comment, created_at, deleted)
+        VALUES (#{tipId}, #{userId}, #{comment}, now(), 0)
+    </insert>
+
+    <select id="findAllTipComment">
+        SELECT
+            tc.comment_id,
+            tc.tip_id,
+            m.nickname,
+            tc.comment,
+            tc.created_at,
+            tc.deleted
+        FROM tip_comment tc LEFT JOIN `member` m ON tc.user_id = m.user_id
+        WHERE tc.tip_id = #{tipId}
+    </select>
+</mapper>

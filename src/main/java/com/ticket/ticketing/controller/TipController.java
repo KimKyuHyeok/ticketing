@@ -1,6 +1,7 @@
 package com.ticket.ticketing.controller;
 
 
+import com.ticket.ticketing.dto.response.ResponseTipCommentDto;
 import com.ticket.ticketing.dto.response.ResponseTipDto;
 
 import com.ticket.ticketing.service.ImageService;
@@ -56,8 +57,10 @@ public class TipController {
             Model model
     ) {
         ResponseTipDto tipDto = tipService.findSelectOne(tipId);
+        List<ResponseTipCommentDto> commentList = tipService.findAllTipComment(tipId);
 
         model.addAttribute("tip", tipDto);
+        model.addAttribute("comments", commentList);
 
         return "board/tip-detail";
     }

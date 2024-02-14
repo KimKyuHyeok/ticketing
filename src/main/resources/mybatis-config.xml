@@ -18,6 +18,7 @@
                 <mapper resource="mapper/MemberMapper.xml"/>
                 <mapper resource="mapper/ConcertMapper.xml"/>
                 <mapper resource="mapper/TipMapper.xml"/>
+                <mapper resource="mapper/TipCommentMapper.xml"/>
                 <mapper resource="mapper/FreeBoardMapper.xml"/>
                 <mapper resource="mapper/AdminMapper.xml"/>
     </mappers>

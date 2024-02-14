@@ -43,6 +43,22 @@
             <span th:utext="${tip.content}"></span>
         </div>
     </div>
+    <div class="comment">
+        <form th:action="@{/board/{tipId}/comment(tipId=${tipId})}" method="post">
+            <div class="comment-menu">
+                <div class="comment-text">
+                    <input class="comment-input" type="text" name="content" placeholder="댓글 입력">
+                </div>
+                <div class="comment-btn">
+                    <button class="btn" type="submit">댓글달기</button>
+                </div>
+            </div>
+        </form>
+        <div class="comment-read" th:each="comment : ${comments}">
+            <div class="comment-nickname" th:text="${comment.nickname}"></div>
+            <div class="comment-text" th:text="${comment.comment}"></div>
+        </div>
+    </div>
 
 
 </main>

@@ -1,7 +1,9 @@
 package com.ticket.ticketing.service;
 
 import com.ticket.ticketing.dto.TipDto;
+import com.ticket.ticketing.dto.response.ResponseTipCommentDto;
 import com.ticket.ticketing.dto.response.ResponseTipDto;
+import com.ticket.ticketing.mapper.TipCommentMapper;
 import com.ticket.ticketing.mapper.TipMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,7 @@ import java.util.List;
 public class TipService {
 
     private final TipMapper tipMapper;
+    private final TipCommentMapper tipCommentMapper;
 
     public List<ResponseTipDto> getBoardList(int page, String searchType, String searchValue) {
         int number = (page - 1) * 20;
@@ -57,5 +60,11 @@ public class TipService {
 
     public ResponseTipDto findSelectOne(Long tipId) {
         return tipMapper.findSelectOne(tipId);
+    }
+
+    public List<ResponseTipCommentDto> findAllTipComment(Long tipId) {
+        List<ResponseTipCommentDto> commentDtoList = tipCommentMapper.findAllTipComment(tipId);
+
+        return commentDtoList;
     }
 }

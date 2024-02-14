@@ -28,3 +28,29 @@
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
+.comment-menu {
+    display: flex;
+    margin-left: 15%;
+    margin-left: 15%;
+    margin-bottom: 10px;
+    font-family: 'GmarketSansMedium', sans-serif;
+}
+
+
+.comment-read {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 15%;
+    margin-left: 15%;
+    border-top: #bdbdbd 1px solid;
+    font-family: 'GmarketSansMedium', sans-serif;
+}
+
+.comment-nickname {
+    font-size: 11px;
+}
+
+.comment-text {
+    font-size: 15px;
+}
