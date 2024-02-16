@@ -32,7 +32,7 @@
 .comment-menu {
     display: flex;
     margin-left: 15%;
-    margin-left: 15%;
+    margin-right: 15%;
     margin-bottom: 10px;
     font-family: 'GmarketSansMedium', sans-serif;
 }
@@ -42,7 +42,7 @@
     padding-top: 5px;
     padding-bottom: 5px;
     margin-left: 15%;
-    margin-left: 15%;
+    margin-right: 15%;
     border-top: #bdbdbd 1px solid;
     font-family: 'GmarketSansMedium', sans-serif;
 }
@@ -54,3 +54,46 @@
 .comment-text {
     font-size: 15px;
 }
+
+.hidden-class {
+    display: none;
+}
+
+#update, #delete {
+
+    border-radius: 25px;
+    font-family: 'GmarketSansMedium', sans-serif;
+    width: 100px;
+    height: 30px;
+}
+
+.btn-menu {
+    display: flex;
+}
+
+#update {
+    background-color: #6B95BB;
+    color: white;
+    margin-left: 75%;
+}
+
+#delete {
+    background-color: red;
+    color: white;
+}
+
+.btn {
+    background-color: #6B95BB;
+    color: white;
+    margin-left: 10px;
+    border-radius: 25px;
+    font-family: 'GmarketSansMedium', sans-serif;
+    width: 100px;
+    height: 100px;
+}
+
+.comment-input {
+    width: 500px;
+    height: 100px;
+}
+

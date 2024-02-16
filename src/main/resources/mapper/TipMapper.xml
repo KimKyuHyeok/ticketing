@@ -78,4 +78,20 @@
         WHERE tb.tip_id = #{tipId}
     </select>
 
+    <select id="getUserId">
+        SELECT user_id FROM tip_board WHERE tip_id = #{tipId}
+    </select>
+
+    <update id="update">
+        UPDATE tip_board
+        SET title = #{title}, content = #{content}, created_at = now()
+        WHERE tip_id = #{tipId}
+    </update>
+
+    <select id="delete">
+        UPDATE tip_board
+        SET deleted = 1
+        WHERE tip_id = #{tipId}
+    </select>
+
 </mapper>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Uno Kim">
+    <title>새 게시글 등록</title>
+
+    <link href="/css/form.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <!-- CKEditor 스크립트 로드 -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/translations/ko.js"></script>
+
+    <script src="/script/tip-detail.js"></script>
+</head>
+
+<body>
+
+<header id="header" th:replace="header :: header">
+    헤더 삽입부
+    <hr>
+</header>
+<body>
+
+<div class="container">
+    <header id="board-form-header" class="form-header">
+        <h1>팁 게시글 수정</h1>
+    </header>
+<div th:object="${tip}">
+    <form id="board-form" th:action="'/board/' + ${tip.tipId} + '/form/request'" method="post">
+        <div class="title-row">
+            <label for="title" class="title-label">제목</label>
+            <input id="tipId" type="hidden" th:value="${tip.tipId}">
+            <div class="title-input">
+                <input type="text" class="form-control" id="title" name="title" required th:value="${tip.title}">
+            </div>
+        </div>
+        <div class="content-row">
+            <label for="content" class="content-label">본문</label>
+            <div class="col-sm-8 col-lg-9">
+                <textarea class="form-control" id="content" name="content" rows="5" th:value="${tip.content}"></textarea>
+                <script th:inline="javascript">
+
+                    var content = /*[[${tip.content}]]*/ '';
+
+                    ClassicEditor.create(document.querySelector('#content'), {
+                        language: 'ko',
+                        ckfinder : {
+                            uploadUrl: "/image/upload",
+                            withCredentials: true
+                        }
+                    })
+                        .then( editor => {
+                            editor.setData(content);
+                        });
+                </script>
+
+            </div>
+        </div>
+        <div class="btn-row">
+            <button type="submit" class="save-btn" id="submit-button">저장</button>
+            <button type="button" class="cancel-btn" id="cancel-button">취소</button>
+        </div>
+    </form>
+</div>
+</div>
+</body>
+
+
+</body>
+</html>

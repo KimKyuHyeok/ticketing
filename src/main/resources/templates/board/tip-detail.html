@@ -19,12 +19,11 @@
 
 <main class="container">
     <div class="tip-detail" th:object="${tip}">
-        <div class="nickname" th:if="${tip.deleted}">
-            <span>이미 삭제된 게시글</span>
-        </div>
 
-        <div class="title" th:unless="${tip.deleted}">
-            <span th:text="${tip.title}"></span>
+
+        <div class="title">
+            <span th:text="${tip.title}" th:unless="${tip.deleted}"></span>
+            <span th:if="${tip.deleted}">이미 삭제된 게시글 입니다.</span>
         </div>
 
         <div class="tip-top-info">
@@ -42,6 +41,11 @@
         <div class="content" th:unless="${tip.deleted}">
             <span th:utext="${tip.content}"></span>
         </div>
+
+        <div class="btn-menu"></div>
+            <button type="button" id="update" th:class="${!boardAuth ? 'hidden-class' : ''}" th:attr="onclick='window.location=\'/board/' + ${tip.tipId} + '/form\''">수정</button>
+            <button type="button" id="delete" th:class="${!boardAuth ? 'hidden-class' : ''}" th:attr="onclick='window.location=\'/board/' + ${tip.tipId} + '/delete\''">삭제</button>
+        </div>
     </div>
     <div class="comment">
         <form th:action="@{/board/{tipId}/comment(tipId=${tipId})}" method="post">
@@ -50,7 +54,7 @@
                     <input class="comment-input" type="text" name="content" placeholder="댓글 입력">
                 </div>
                 <div class="comment-btn">
-                    <button class="btn" type="submit">댓글달기</button>
+                    <button class="btn" type="submit">작성</button>
                 </div>
             </div>
         </form>
@@ -58,6 +62,8 @@
             <div class="comment-nickname" th:text="${comment.nickname}"></div>
             <div class="comment-text" th:text="${comment.comment}"></div>
         </div>
+
+
     </div>
 
 

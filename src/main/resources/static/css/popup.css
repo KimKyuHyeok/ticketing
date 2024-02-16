@@ -1,4 +1,5 @@
 /* 전체 테이블 스타일링 */
+
 .concert-table {
     width: 100%;
     border-collapse: collapse;
@@ -23,5 +24,27 @@
     display: flex;
     align-items: center;
 }
+
+.concert-table th.concert-name,
+.concert-table th.concert-artist,
+.concert-table th.concert-location,
+.concert-table th.concert-reservation,
+.concert-table th.concert-dDay,
+.concert-table th.concert-link {
+    background-color: #6B95BB;
+    color: white;
+    font-family: 'GmarketSansMedium', sans-serif;
+}
+
+.concert-table td.concert-name,
+.concert-table td.concert-artist,
+.concert-table td.concert-location,
+.concert-table td.concert-reservation,
+.concert-table td.concert-dDay,
+.concert-table td.concert-link {
+    font-family: 'GmarketSansMedium', sans-serif;
+}
+
+
 
 

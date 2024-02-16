@@ -67,4 +67,26 @@ public class TipService {
 
         return commentDtoList;
     }
+
+    public Long getUserId(Long tipId) {
+        return tipMapper.getUserId(tipId);
+    }
+
+    public boolean update(Long tipId, String title, String content) {
+        try {
+            tipMapper.update(tipId, title, content);
+
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+
+            return false;
+        }
+    }
+
+    public void delete(Long tipId, Long userId) {
+        if (tipMapper.getUserId(tipId).equals(userId)) {
+            tipMapper.delete(tipId);
+        }
+    }
 }

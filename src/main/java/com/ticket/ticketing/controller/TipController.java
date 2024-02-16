@@ -1,6 +1,7 @@
 package com.ticket.ticketing.controller;
 
 
+import com.ticket.ticketing.dto.TipDto;
 import com.ticket.ticketing.dto.response.ResponseTipCommentDto;
 import com.ticket.ticketing.dto.response.ResponseTipDto;
 
@@ -54,11 +55,30 @@ public class TipController {
     @GetMapping("/board/{tipId}")
     public String tipBoardDetailPage(
             @PathVariable Long tipId,
-            Model model
+            Model model,
+            HttpServletRequest request
     ) {
+        Cookie[] cookies = request.getCookies();
+        Long sessionUser = null;
+
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("num")) {
+                    String idValue = cookie.getValue();
+                    sessionUser = Long.parseLong(idValue);
+
+
+                }
+            }
+        }
+
+
         ResponseTipDto tipDto = tipService.findSelectOne(tipId);
         List<ResponseTipCommentDto> commentList = tipService.findAllTipComment(tipId);
+        Long writer = tipService.getUserId(tipId);
+        boolean user = (sessionUser == writer);
 
+        model.addAttribute("boardAuth", user);
         model.addAttribute("tip", tipDto);
         model.addAttribute("comments", commentList);
 
@@ -90,6 +110,66 @@ public class TipController {
 
                     return "redirect:/board";
                 }
+            }
+        }
+        return null;
+    }
+
+    @GetMapping("/board/{tipId}/form")
+    public String updateTipBoardPage(
+            @PathVariable Long tipId,
+            HttpServletRequest request,
+            Model model
+    ) {
+        Cookie[] cookies = request.getCookies();
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("num")) {
+                Long userId = Long.parseLong(cookie.getValue());
+
+                Long writer = tipService.getUserId(tipId);
+
+                if (userId != writer) {
+                    return null;
+                }
+            }
+        }
+        ResponseTipDto tipDto = tipService.findSelectOne(tipId);
+        model.addAttribute("tip", tipDto);
+
+//        tipService.update(tipId, title, content);
+
+
+        return "board/updateForm";
+    }
+
+    @PostMapping("/board/{tipId}/form/request")
+    public String updateTipBoard(
+            @PathVariable Long tipId,
+            @RequestParam("title") String title,
+            @RequestParam("content") String content
+    ) {
+
+        tipService.update(tipId, title, content);
+
+        String url = "redirect:/board/" + tipId;
+
+        return url;
+    }
+
+    @GetMapping("/board/{tipId}/delete")
+    public String deleteTipBoard(
+            @PathVariable Long tipId,
+            HttpServletRequest request
+    ) {
+        Cookie[] cookies = request.getCookies();
+
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("num")) {
+                Long userId = Long.parseLong(cookie.getValue());
+
+                tipService.delete(tipId, userId);
+
+                return "redirect:/board";
             }
         }
         return null;

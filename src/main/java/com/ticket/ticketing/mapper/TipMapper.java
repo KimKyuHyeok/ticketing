@@ -28,4 +28,14 @@ public interface TipMapper {
     void upload(@Param("tipDto") TipDto tipDto);
 
     ResponseTipDto findSelectOne(@Param("tipId") Long tipId);
+
+    Long getUserId(@Param("tipId") Long tipId);
+
+    void update(
+            @Param("tipId") Long tipId,
+            @Param("title") String title,
+            @Param("content") String content
+    );
+
+    void delete(@Param("tipId") Long tipId);
 }
