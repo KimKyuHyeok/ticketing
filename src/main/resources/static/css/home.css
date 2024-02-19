@@ -9,6 +9,24 @@
     box-sizing: border-box;
 }
 
+.concert-name {
+    width: 150px;
+    height: 42px;
+}
+
+.concert-image {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.concert-name {
+    color: inherit; /* 링크 색상을 부모 요소의 색상으로 상속 */
+    text-decoration: none; /* 밑줄 제거 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .top-menu {
     display: flex;
     align-items: center;
@@ -28,7 +46,7 @@
 
 .concert-image {
     width: 150px;
-    height: auto;
+    height: 200px;
 }
 
 .recent-concert {
@@ -42,6 +60,7 @@
 }
 
 .concert-title-table {
+    margin-top: 20px;
     display: flex;
 }
 
