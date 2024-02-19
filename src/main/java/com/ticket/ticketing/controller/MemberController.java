@@ -46,6 +46,7 @@ public class MemberController {
         // 세션 대신 쿠키를 사용하여 세션 식별자를 저장
         Cookie idCookie = new Cookie("id", member.getLoginId());
         Cookie numCookie = new Cookie("num", String.valueOf(member.getUserId()));
+        Cookie role = new Cookie("role", member.getRole());
 
         // 쿠키 유효 시간 설정 (초 단위)
         idCookie.setMaxAge(1800);
@@ -54,6 +55,7 @@ public class MemberController {
         // 쿠키를 HTTP 응답 헤더에 추가
         response.addCookie(idCookie);
         response.addCookie(numCookie);
+        response.addCookie(role);
 
         return "redirect:/";
     }

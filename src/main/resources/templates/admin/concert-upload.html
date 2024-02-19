@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Kim">
+    <title>관리자 페이지</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/script/concert-upload-option.js"></script>
+    <script type="text/javascript" src="/script/concert-upload-data.js"></script>
+</head>
+<body>
+<header id="header">
+    헤더 삽입부
+    <hr>
+</header>
+<main>
+    <form method="post">
+        <input type="hidden" name="_method" value="post"/>
+        <table class="admin-concert">
+            <tr class="upload-image">
+                <th>이미지 업로드</th>
+                <td><input type="file" name="image"></td>
+            </tr>
+            <tr>
+                <th>콘서트 명</th>
+                <td><input type="text" id="concert-name" name="title"></td>
+            </tr>
+            <tr>
+                <th>아티스트</th>
+                <td><input type="text" id="concert-artist" name="artist"></td>
+            </tr>
+            <tr>
+                <th>장소</th>
+                <td><input type="text" id="concert-location" name="location"></td>
+            </tr>
+            <tr>
+                <th>예매일</th>
+                <td>
+                    <select class="year" id="reservation-year">
+                        <option>선택하세요</option>
+                    </select> 년
+                    <select class="month" id="reservation-month">
+                        <option>선택하세요</option>
+                    </select> 월
+                    <select class="day" id="reservation-day">
+                        <option>선택하세요</option>
+                    </select> 일
+                    <select class="hour" id="reservation-hour">
+                        <option>선택하세요</option>
+                    </select> 시
+                    <select class="min" id="reservation-min">
+                        <option>선택하세요</option>
+                    </select> 분
+                </td>
+            </tr>
+            <tr>
+                <th>콘서트 시작일</th>
+                <td>
+                    <select class="year" id="startDay-year">
+                        <option>선택하세요</option>
+                    </select> 년
+                    <select class="month" id="startDay-month">
+                        <option>선택하세요</option>
+                    </select> 월
+                    <select class="day" id="startDay-day">
+                        <option>선택하세요</option>
+                    </select> 일
+                    <select class="hour" id="startDay-hour">
+                        <option>선택하세요</option>
+                    </select> 시
+                    <select class="min" id="startDay-min">
+                        <option>선택하세요</option>
+                    </select> 분
+                </td>
+            </tr>
+            <tr>
+                <th>콘서트 종료일</th>
+                <td>
+                    <select class="year" id="endDay-year">
+                        <option>선택하세요</option>
+                    </select> 년
+                    <select class="month" id="endDay-month">
+                        <option>선택하세요</option>
+                    </select> 월
+                    <select class="day" id="endDay-day">
+                        <option>선택하세요</option>
+                    </select> 일
+                    <select class="hour" id="endDay-hour">
+                        <option>선택하세요</option>
+                    </select> 시
+                    <select class="min" id="endDay-min">
+                        <option>선택하세요</option>
+                    </select> 분
+                </td>
+            </tr>
+            <tr>
+                <th>예매처</th>
+                <td><input type="text" id="concert-link" name="link"></td>
+            </tr>
+        </table>
+        <button id="concert-upload-btn">업로드</button>
+    </form>
+</main>
+
+<footer id="footer">
+    <hr>
+    푸터 삽입부
+</footer>
+</body>
+</html>
