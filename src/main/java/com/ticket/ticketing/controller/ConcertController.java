@@ -22,4 +22,9 @@ public class ConcertController {
 
         return "popup";
     }
+
+    @GetMapping("/practice")
+    public String reservationPractice() {
+        return "reservation/practice";
+    }
 }
