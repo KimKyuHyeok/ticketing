@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>[핫콘] 예매연습 페이지</title>
+    <link href="/css/practice.css" rel="stylesheet">
+    <script src="/script/session.js"></script>
+</head>
+
+<body>
+    <header th:replace="header.html"></header>
+
+    <div class="reservationPractice">
+        <button class="startBtn" id="start">시작하기</button>
+        <div class="loading" id="loading">
+            <div class="loadingName" id="loadingName">대기열</div>
+            <div class="loadingNumber" id="loadingNumber"></div>
+        </div>
+
+        <div class="menu">
+            <div id="seatList" class="seatList"></div>
+        </div>
+
+        <div class="select" id="select">
+            <div class="seatPrice" id="seatPrice">
+                <h3 class="title">좌석등급 / 잔여석</h3>
+                <table>
+                    <div class="vipSeat">
+                        <div class="vipColor"></div>
+                        <span class="vipName">VIP : 165,000원</span>
+                    </div>
+                </table>
+            </div>
+            <div class="selectTable">
+                <table>
+                    <tr>TEST</tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/script/reservation-practice.js"></script>
+</html>
