@@ -1,0 +1,127 @@
+.reservationPractice {
+    display: flex;
+    border: black solid 1px;
+    margin-top: 15px;
+    width: 800px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.startBtn {
+    font-family: 'GmarketSansMedium', sans-serif;
+    background-color: #6B95BB;
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loading {
+    display: none;
+    font-family: 'GmarketSansMedium', sans-serif;
+    text-align: center;
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loadingName {
+    font-size: 30px;
+}
+
+.loadingNumber {
+    margin-top: 10%;
+    font-size: 50px;
+}
+
+.menu {
+    display: flex;
+    width: 50%;
+    height: 100%;
+}
+
+.seatList {
+    margin-top: 20%;
+    margin-left: 20%;
+
+    /*display: flex;*/
+    /*flex-direction: column;*/
+}
+
+.seatRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2px;
+}
+
+.seatY {
+    width: 10px;
+    height: 10px;
+    margin: 1px;
+    padding: 0 0 0 0;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #1CA814;
+}
+
+.seatN {
+    width: 10px;
+    height: 10px;
+    margin: 1px;
+    padding: 0 0 0 0;
+    display: inline-block;
+    pointer-events: none;
+    background-color: darkgrey;
+}
+
+.changed {
+    border-width: 3px;
+    border-style: solid;
+    border-color: gainsboro dimgray black gainsboro;
+}
+
+.select {
+    display: none;
+    width: 50%;
+    height: 100%;
+}
+
+.vipSeat {
+    display: flex;
+}
+
+.vipColor {
+    width: 10px;
+    height: 10px;
+    padding: 0 0 0 0;
+    background-color: #1CA814;
+}
+
+.vipName {
+    font-size: 10px;
+    font-family: 'GmarketSansMedium', sans-serif;
+    margin-left: 3px;
+}
+
+.title {
+    font-family: 'GmarketSansMedium', sans-serif;
+    color: #636363;
+}
+
+.seatPrice {
+    border: #bdbdbd solid 1px;
+    padding: 5px 5px 5px 5px;
+}
+
+.seatPrice, .selectTable {
+    height: 50%;
+}
+
