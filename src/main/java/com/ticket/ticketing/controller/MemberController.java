@@ -100,7 +100,7 @@ public class MemberController {
                 }
             }
         }
-        return null;
+        return "error";
     }
 
     @PostMapping("/myPage/update")
