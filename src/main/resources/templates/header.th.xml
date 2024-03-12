@@ -2,7 +2,7 @@
 <thlogic>
     <!--    <attr sel="#home" th:href="@{/home}"/>-->
     <attr sel="#tip-board" th:href="@{/board}"/>
-    <attr sel="#free-board" th:href="@{/free-board}"/>
+    <attr sel="#practice" th:href="@{/practice}"/>
     <attr sel="#notice" th:href="@{/notice}"/>
     <attr sel="#login" th:if="${#request.getCookies() == null}" th:href="@{/login}"/>
     <attr sel="#join" th:if="${#request.getCookies() == null}" th:href="@{/join}"/>
