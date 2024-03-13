@@ -12,6 +12,7 @@ document.getElementById('start').addEventListener('click', function (){
     let currentTime = 4;
 
     const timerInterval = setInterval(function () {
+        var startTIme = new Date();
         currentTime--;
         if (currentTime == 3) {
             loadingNumber.textContent = '456';
@@ -58,6 +59,14 @@ document.getElementById('start').addEventListener('click', function (){
                 }
                 seatList.appendChild(row);
             }
+
+            document.getElementById('reservationBtn').addEventListener('click', function () {
+                var endTime = new Date();
+                var timeDiff = (endTime - startTIme) / 1000;
+                var seconds = timeDiff.toFixed(2);
+                alert('경과시간 : ' + seconds + '초');
+                window.location.href = '/practice';
+            })
         }
 
     }, 1000);
@@ -65,16 +74,44 @@ document.getElementById('start').addEventListener('click', function (){
     function changeStyle() {
         // 현재 클래스를 확인합니다.
         var hasChangedClass = this.classList.contains('changed');
+        var newSpanTitle = this.title;
+        const selectTable = document.getElementById('sTable');
 
         // 현재 클래스에 따라 토글합니다.
         if (hasChangedClass) {
             // 클래스를 제거하여 이전 상태로 돌립니다.
             this.classList.remove('changed');
+
+            // 해당 요소의 부모를 찾습니다.
+            var parentElement = this.parentElement;
+
+            // selectDataList 클래스를 가진 요소를 찾아서 제거합니다.
+            var selectDataList = parentElement.querySelector('.selectDataList');
+            if (selectDataList) {
+                parentElement.removeChild(selectDataList);
+            }
+
         } else {
             // 클래스를 추가하여 새로운 스타일을 적용합니다.
             this.classList.add('changed');
+
+            const selectData = document.createElement('tr');
+            var newTd1 = document.createElement('td');
+            var newTd2 = document.createElement('td');
+
+            selectData.classList.add('selectDataList');
+            newTd1.textContent = 'VIP석';
+            newTd2.textContent = newSpanTitle;
+            newTd1.classList.add('selectData');
+            newTd2.classList.add('selectData');
+
+            selectData.appendChild(newTd1);
+            selectData.appendChild(newTd2);
+
+            selectTable.appendChild(selectData);
         }
     }
+
 });
 
 
