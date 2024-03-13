@@ -159,6 +159,40 @@
 }
 
 .selectTable {
-    height: 65%;
+    position: relative;
+    height: 55%;
+}
+
+.sTable {
+    border-top: black;
+    border-bottom: black;
+    font-family: 'GmarketSansMedium', sans-serif;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.selectDataMenu, .selectData {
+    width: 50%;
+}
+
+.sTable th {
+    border-bottom: #bdbdbd;
+}
+
+.selectData {
+    font-size: 12px;
+    background-color: white;
+}
+
+.reservationBtn {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #C92C26;
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    bottom: 0;
 }
 
