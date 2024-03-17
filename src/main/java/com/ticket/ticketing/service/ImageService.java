@@ -57,6 +57,6 @@ public class ImageService {
         //서버에 저장한 이미지 삭제
         localFile.delete();
 
-        return fileName;
+        return "/image/" + fileName;
     }
 }
